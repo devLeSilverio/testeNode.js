@@ -1,7 +1,8 @@
 const os = require('os'); //importando um modulo de dentro do node 
 
+const log = require('./logger') //esta na pasta local
 
-setInterval(() => {
+setInterval(() => { // funcao global --> enquanto tempo vai ficar rodando 
 
     console.log(os.platform()); //vai aparecer no console log o resultado da função fazendo--> node stats.js 
 
@@ -28,8 +29,10 @@ setInterval(() => {
     }
 
     console.clear();
+
     console.log("===PC STATS====");
     console.log(stats); //retornara ele formatado
     console.table(stats); //retornara em forma de tabela
+    log(`${JSON.stringify(stats)}\n`); //vai transformar o js em texto,que é o estilo json 
 
 }, 1000)
